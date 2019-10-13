@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="data"></div>
+  </body>
+  <script>
+    function getContent() {
+      fetch("https://jsonplaceholder.typicode!21.com/posts")
+        .then(function(data) {
+          return data.json();
+        })
+        .then(function(posts) {
+          document.getElementById("data").innerText = JSON.stringify(posts);
+        })
+        .catch(function(err) {
+          document.getElementById("data").innerText = "ERROR FOUND";
+        });
+    }
+    getContent();
+  </script>
+</html>
